@@ -99,10 +99,9 @@ or understand why deals are stalling.
 
 **martech-contract-auditor**
 Prepares you for a SaaS vendor renewal or renegotiation. Searches for
-current pricing benchmarks, audits your leverage across six categories
-(usage vs. spend, contract timing, competitive alternatives, multi-year
-value, bundle gaps, and tenure), and delivers a negotiation brief with
-specific ask language and a walk-away position.
+current pricing benchmarks, audits your leverage across six categories,
+and delivers a negotiation brief with specific ask language and a
+walk-away position.
 
 Distinguishing feature: no other public skill addresses the specific
 leverage dynamics of a MarTech renewal. This one encodes what actually
@@ -118,9 +117,9 @@ criteria and tier structure, channel and content mix by tier,
 coordination cadence, and a measurement framework built around
 account penetration rather than lead volume.
 
-Distinguishing feature: generic demand gen skills exist. ABM-specific
-skills that address tier structure, sales-marketing coordination, and
-the right metrics do not.
+Distinguishing feature: ABM-specific skills that address tier
+structure, sales-marketing coordination, and the right metrics
+do not exist elsewhere at this depth.
 
 Trigger: any request to build or improve an account-based marketing
 program or named account targeting strategy.
@@ -143,10 +142,8 @@ or trial-to-paid conversion.
 **gtm-ai-adoption-rollout**
 Builds a 90-day adoption plan for rolling out AI tools and new
 workflows to a sales or marketing team. Diagnoses which of five
-common failure modes applies (wrong incentive structure, one-time
-training event, too much change at once, unidentified resisters, or
-no adoption owner), then delivers a phased rollout plan with
-manager coaching guidance and behavioral success metrics.
+common failure modes applies, then delivers a phased rollout plan
+with manager coaching guidance and behavioral success metrics.
 
 Distinguishing feature: every GTM skill on GitHub teaches Claude how
 to do marketing tasks. This one addresses the organizational problem
@@ -172,6 +169,63 @@ program produces measurable pipeline or just activity.
 
 Trigger: any mention of building a partner program, partner pipeline
 attribution, reseller programs, or co-sell infrastructure.
+
+**first-90-days-demand-gen-revops**
+Builds a structured diagnostic and action plan for a demand gen or
+RevOps leader starting a new role. Covers the CRM audit, stakeholder
+interview framework with specific questions for sales leaders and
+reps, program and spend audit, tech stack assessment, how to pick the
+right first fix, and how to prepare the first leadership presentation
+with a defensible pipeline contribution number.
+
+Distinguishing feature: the only skill on GitHub built specifically
+for a demand gen or RevOps leader entering a new role. The only
+comparable skill covers VP/CPO product transitions, which is an
+entirely different problem. This one encodes the operational
+diagnostic work that determines whether a new leader builds credibility
+or loses it in the first quarter.
+
+Trigger: starting a new demand gen or RevOps role, building a 30-60-90
+day plan, or preparing for an early stakeholder presentation.
+
+---
+
+### Leadership
+
+**marketing-budget-defense**
+Prepares a demand gen or marketing leader for the budget conversation
+with a CEO, CFO, or board. Builds the four numbers that must be present
+before any budget conversation: pipeline contribution, cost per dollar
+of pipeline, payback period, and impact of a proposed cut. Delivers
+a three-scenario model and prepared answers to the most common
+challenges including "can we do the same with less" and "marketing
+is a cost center."
+
+Distinguishing feature: the only skill that addresses the specific
+high-stakes conversation where marketing must justify its investment
+to a skeptical executive audience. Generic financial skills model
+numbers. This one prepares you for the room.
+
+Trigger: budget review, defending marketing spend, annual planning,
+board presentation, or any request to justify marketing ROI.
+
+**sales-marketing-sla**
+Builds the operational agreement between marketing and sales around
+lead quality and follow-up. Defines the MQL definition using
+firmographic fit plus behavioral signal scoring, the sales SLA
+covering response time, contact attempt requirements, and disposition
+rules, and the CRM configuration needed to enforce it automatically.
+Includes the process for getting genuine sales buy-in rather than
+surface compliance.
+
+Distinguishing feature: the primary failure mode of most SLA
+initiatives is that marketing builds the definition without sales
+input. This skill encodes the facilitation process that produces
+a definition sales actually owns, not one they tolerate.
+
+Trigger: any conversation about MQL definition, lead handoff, sales
+not following up on marketing leads, or building a sales-marketing
+agreement.
 
 ---
 
@@ -218,8 +272,8 @@ role targets. To use them for your own job search, replace those
 sections with your own background. The trigger logic, scoring
 frameworks, and output structure transfer directly.
 
-The RevOps and demand gen skills work out of the box with no
-personalization required. Just add them to a Project and describe
+The RevOps, leadership, and writing skills work out of the box with
+no personalization required. Just add them to a Project and describe
 your situation.
 
 ---
