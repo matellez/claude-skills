@@ -1,0 +1,368 @@
+---
+name: intent-data-activation
+version: 1.0.0
+description: |
+  AUTO-TRIGGER: Apply this skill when the user is working with intent
+  data signals from ZoomInfo, Bombora, G2, 6sense, Demandbase, or any
+  similar platform, and needs to operationalize those signals into CRM
+  workflows, campaign enrollment, rep alerts, or account prioritization.
+  Trigger phrases include: "intent data," "ZoomInfo intent," "Bombora
+  signals," "G2 buyer intent," "in-market accounts," "activating intent,"
+  "intent signals aren't doing anything," "we're paying for intent data
+  but not using it," "how do I route intent accounts," "intent-based
+  campaigns," or any situation where the user has intent data and needs
+  to turn it into action.
+
+  Also trigger when the user is evaluating which intent signals to act
+  on, designing CRM workflows to handle signal ingestion, or trying to
+  measure whether their intent activation is producing results.
+
+  Do NOT trigger for general ABM strategy, ZoomInfo data enrichment
+  questions, or lead scoring without intent signals. This skill is
+  specifically about the workflow layer between receiving an intent
+  signal and taking an action.
+allowed-tools:
+  - Read
+  - Write
+  - Edit
+---
+
+# Intent Data Activation: Turning Signals Into Actions That Generate Pipeline
+
+This skill addresses the gap between buying intent data and using it.
+Most B2B SaaS companies that purchase ZoomInfo Intent, Bombora Company
+Surge, or G2 Buyer Intent do one of two things with it: they add a score
+to a contact record in their CRM and hope the sales team notices, or
+they build a dashboard that no one looks at after the first month. Neither
+produces pipeline.
+
+Intent data earns its cost when it changes what happens next for a
+specific account. A signal without a workflow is just data. This skill
+encodes the workflow design decisions that connect a signal to a response,
+the threshold logic that determines which signals are worth acting on,
+the routing decisions that determine whether a signal goes to a rep or a
+campaign, and the measurement framework that tells you whether the
+activation is working.
+
+---
+
+## HOW TO SET UP THIS SKILL
+
+Provide:
+
+- Which intent data provider or providers you have: ZoomInfo Intent,
+  Bombora, G2 Buyer Intent, 6sense, Demandbase, or other
+- Your CRM: HubSpot, Salesforce, or other
+- How intent data currently flows into your CRM, if at all
+- Whether you have an SDR or BDR team handling outbound
+- Your current ICP: the firmographic and behavioral profile of your
+  best-fit accounts
+- What, if anything, you are currently doing with intent signals
+
+---
+
+## The Core Problem: Intent Data Without Activation Logic
+
+Intent data vendors sell on the premise that knowing which accounts
+are researching your category is enough to drive action. It is not.
+The signal tells you that an account is interested. It does not tell
+you how interested, whether they match your ICP, what they should
+receive next, or who owns the response. Without that logic built into
+your CRM or marketing automation platform, the signal expires unused.
+
+Intent signals decay fast. A Bombora Company Surge score that spikes
+on a Monday and is not acted on by Wednesday has already lost
+significant value. Accounts in active research mode are evaluating
+multiple vendors simultaneously. The team that responds first with
+relevant messaging wins more conversations than the team with the
+best product but the slowest activation.
+
+---
+
+## Step 1: Signal Triage Before Building Any Workflow
+
+Before building activation workflows, determine which signals are
+worth acting on. Not all intent signals represent real buying behavior.
+
+**Signal quality by source type:**
+
+First-party signals (your own website, your own HubSpot or Salesforce
+data): Highest quality. An account visiting your pricing page three
+times in a week is a more reliable signal than an account showing
+Bombora surge on a topic adjacent to your category. First-party
+signals should always take priority in your activation logic.
+
+G2 Buyer Intent: High quality for software categories. An account
+actively reviewing products in your category on G2 has demonstrated
+vendor evaluation behavior. This is a reliable buying signal, not
+just research behavior.
+
+Bombora Company Surge: Medium quality. Surge above baseline on a
+relevant topic indicates research activity, but topic selection
+matters enormously. Broad topics produce noise. Narrow, category-
+specific topics produce signal. Evaluate whether your topic selections
+are tight enough to filter out accounts that are researching adjacent
+problems rather than your specific solution.
+
+ZoomInfo Intent: Variable quality depending on how topics are
+configured and how the score is weighted. Treat it as a directional
+indicator to be validated against ICP fit before routing to reps.
+
+**The ICP filter must come before the intent filter:**
+
+A high-intent signal from a company outside your ICP is not worth
+acting on at the rep level. It may be worth a retargeting impression,
+but it should not generate an SDR task. Build your ICP qualification
+criteria into the workflow before the intent routing step. Sequence:
+does the account fit ICP? Then: what is the intent signal strength?
+Then: what happens next?
+
+---
+
+## Step 2: Threshold Design
+
+Intent signals need thresholds to be actionable. A workflow that fires
+on every intent signal generates noise and trains your reps to ignore
+the alerts. A workflow with thresholds that are too high misses accounts
+that are genuinely in-market.
+
+**Threshold framework for a mid-market B2B SaaS company:**
+
+Tier 1 (immediate rep response within 24 hours):
+Account is in ICP. Account has no open opportunity in CRM. Intent
+signal is first-party (pricing page visit, demo page visit, returning
+visitor from known company domain) or G2 Buyer Intent active. Signal
+has been active for three or more days rather than a single spike.
+
+Tier 2 (campaign enrollment, SDR sequence within 48 hours):
+Account is in ICP. No open opportunity. Bombora surge score above
+your chosen threshold (typically 60 or above on a 100-point scale,
+but calibrate to your category). Or ZoomInfo intent score elevated
+on two or more relevant topics simultaneously.
+
+Tier 3 (retargeting only, no direct outreach):
+Account shows intent signal but does not fully match ICP. Or signal
+is weak or single-topic. Enroll in LinkedIn retargeting or paid
+display. Do not generate SDR task.
+
+Existing customers and open opportunities: Flag for customer success
+or the account executive who owns the relationship. Intent signals
+from accounts already in pipeline or already a customer are expansion
+signals, not new business signals. Route accordingly.
+
+---
+
+## Step 3: Workflow Architecture in HubSpot or Salesforce
+
+The workflow must do five things: receive the signal, check ICP
+fit, apply threshold logic, route to the right response, and log
+the trigger for measurement.
+
+**HubSpot workflow structure for intent activation:**
+
+Enrollment trigger: Contact property or company property updated
+by the intent data integration (ZoomInfo, Bombora, or G2 native
+integration, or imported via CSV or Zapier if no native integration
+exists).
+
+Step 1: Check company properties against ICP criteria. Employee
+count in range, industry match, revenue range if available. If
+not ICP fit, enroll in Tier 3 retargeting list. Exit workflow.
+
+Step 2: Check for existing open deal. If open deal exists, create
+task for deal owner. Exit main workflow. If no open deal, proceed.
+
+Step 3: Apply signal threshold logic. If Tier 1 criteria met,
+create task for assigned SDR or BDR with high priority, due within
+24 hours. Send internal Slack or email notification. Log intent
+trigger in contact timeline. If Tier 2 criteria met, enroll in
+outbound sequence (if SDR team exists) or in marketing nurture
+sequence with intent-aware messaging. Log trigger. If Tier 3,
+add to retargeting audience only.
+
+Step 4: Set a re-enrollment window. If the account takes no action
+and the signal persists for 14 days, re-evaluate. If signal drops,
+remove from active queue. If account converts to opportunity, exit
+intent workflows entirely.
+
+**The logging step is not optional:**
+
+Every time the workflow fires, log the intent trigger, the tier it
+was routed to, and the date in the contact or company record. Without
+this log you cannot measure activation effectiveness. You will not
+know whether your Tier 1 accounts converted to opportunities at a
+higher rate than Tier 2, and you will not be able to improve your
+thresholds over time.
+
+---
+
+## Step 4: Messaging That Uses the Signal
+
+An intent-triggered outreach that does not reference the signal
+context wastes the information advantage the signal provides.
+A generic SDR sequence sent to an intent-triggered account is only
+marginally better than a cold sequence. The signal tells you something
+about what the account is researching. The outreach should reflect that.
+
+**What to reference without being creepy:**
+
+Do not say: "I see you have been researching supply chain software."
+Accounts find this unsettling and it signals surveillance, not
+relevance.
+
+Do say: "We work with a lot of supply chain teams who are evaluating
+how to get better pipeline visibility right now. Most of them tell
+us the biggest gap is X." This acknowledges the research context
+without referencing the signal directly.
+
+Intent signal types map to different message angles:
+
+G2 Buyer Intent: The account is actively comparing vendors. Lead with
+differentiation and proof. They are already sold on the category. The
+question is why you versus the alternatives. "I noticed [company] is
+evaluating options in this space. Here is what we typically hear from
+teams who switched to us from [competitor]."
+
+Bombora surge on a problem topic: The account is researching a
+problem, not yet a solution. Lead with problem validation and
+perspective. Not a product pitch. "Most teams we talk to in [industry]
+are dealing with X right now. Here is how we have seen the best ones
+approach it."
+
+First-party high-intent (pricing page, demo page): The account
+has expressed direct commercial interest. Make it easy to take the
+next step. The message should be short, direct, and low friction.
+"I saw [company] spent some time on our pricing page recently. Happy
+to walk you through options based on your team size and use case."
+
+---
+
+## Step 5: Measuring Activation Effectiveness
+
+Intent data activation has two measurement problems. First, you need
+to know whether activated accounts convert to pipeline at a higher rate
+than non-activated accounts of the same ICP profile. Second, you need
+to know which signal types and thresholds are driving the most pipeline
+so you can tune the workflows.
+
+**The two reports that tell you if activation is working:**
+
+Conversion rate by intent tier: Tier 1 accounts that received a
+rep response within 24 hours versus Tier 2 accounts in sequence
+versus Tier 3 in retargeting only. If Tier 1 is not converting to
+opportunities at a meaningfully higher rate than Tier 2, your Tier 1
+threshold is miscalibrated. Either you are routing too many accounts
+to Tier 1 (diluting rep attention) or the signal quality is lower
+than expected.
+
+Signal-to-opportunity time: How many days between the first intent
+signal and opportunity creation, on average. If this number is
+improving, your activation speed is working. If it is stagnant,
+the delay is in the rep response, the sequence, or the threshold
+logic triggering too late in the research cycle.
+
+Run both reports quarterly. Adjust thresholds based on what you see.
+Intent data activation is not a set-it-and-forget configuration.
+The signals your category produces shift as the market matures, as
+new competitors enter, and as your ICP evolves.
+
+---
+
+## Common Activation Failures and How to Fix Them
+
+**The rep ignores intent alerts:**
+Cause: Too many alerts, low signal quality, or alerts arriving in
+a channel reps do not monitor. Fix: Tighten Tier 1 threshold to
+reduce volume. Move alerts to the channel reps already use (Slack,
+CRM task, email). Add context to the alert so reps understand why
+this account is flagged.
+
+**The workflow fires but nothing converts:**
+Cause: ICP filter is too loose, signal threshold is too low, or
+messaging does not reflect the signal context. Fix: Audit the last
+30 Tier 1 accounts. What percentage were genuinely ICP fit? What
+was the SDR response time? What sequence were they enrolled in?
+Find the break in the chain before adjusting thresholds.
+
+**Intent data stops flowing into CRM:**
+Cause: Native integrations break silently. CSV imports become
+someone's weekly manual task that eventually stops happening. Fix:
+Build a weekly check into your RevOps routine: verify that the
+last intent data update in CRM occurred within the expected window.
+Set a calendar reminder. Do not rely on the integration to alert
+you when it breaks.
+
+---
+
+## Deliver the Activation Plan
+
+Output in this format:
+
+```
+INTENT DATA ACTIVATION PLAN
+Provider(s): [ZoomInfo / Bombora / G2 / other]
+CRM: [HubSpot / Salesforce / other]
+SDR team: [yes / no]
+Built: [today's date]
+
+SIGNAL QUALITY ASSESSMENT
+[Evaluation of the user's current intent sources. Which are highest
+quality for their category and ICP. Which may be producing noise.
+Specific to what they have described.]
+
+ICP FILTER CRITERIA
+[The specific company properties to check before any intent signal
+triggers a response. Employee count range, industry, revenue if
+available, geography. Stated as CRM property filters.]
+
+TIER DEFINITIONS
+Tier 1 (rep response, 24 hours):
+[Specific criteria using the signals the user has]
+
+Tier 2 (sequence or campaign, 48 hours):
+[Specific criteria]
+
+Tier 3 (retargeting only):
+[Specific criteria]
+
+Existing customers / open opportunities:
+[Routing logic]
+
+WORKFLOW ARCHITECTURE
+[Step-by-step workflow logic for their specific CRM and intent
+provider. Named properties, named triggers, named actions. Not
+generic. Specific to what they have described.]
+
+MESSAGE ANGLES BY SIGNAL TYPE
+[For each intent signal the user has, the specific message angle
+to use in rep outreach or sequence enrollment. Not template copy.
+The angle and what to reference based on the signal context.]
+
+MEASUREMENT SETUP
+[The two reports to build, what properties to log at trigger time,
+and the quarterly review cadence.]
+
+MOST LIKELY FAILURE POINT
+[Based on what the user has described, the one thing most likely
+to cause this activation to stop working within 90 days. Specific,
+not generic. With the fix.]
+```
+
+---
+
+## Output Rules
+
+- Never recommend activating intent signals without first defining
+  ICP criteria. ICP filter must come before intent threshold logic.
+- Be specific about CRM property names and workflow steps when the
+  user has named their CRM. Generic workflow descriptions are not
+  useful to someone building in HubSpot or Salesforce.
+- If the user does not have a native integration between their intent
+  provider and CRM, address that before building workflow logic.
+  A workflow that requires manual data entry will stop working.
+- The logging step is not optional. Flag it explicitly if the user
+  does not mention measurement.
+- If the user's Tier 1 threshold is too broad based on what they
+  describe, say so directly. Too many Tier 1 alerts trains reps to
+  ignore them, which kills the entire activation.
+- No em dashes. Use commas or periods.
