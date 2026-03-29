@@ -26,10 +26,11 @@ generic frameworks. These encode practitioner judgment.
 
 The distinction matters. A generic RevOps skill tells you what lead
 lifecycle stages are. These skills tell you why your pipeline is
-stalling, what your HubSpot instance is actually broken on, and how
-to negotiate your ZoomInfo renewal down 20%. That judgment comes from
-doing the work across a dozen B2B SaaS companies, not from reading
-about it.
+stalling, what your HubSpot instance is actually broken on, how to
+negotiate your ZoomInfo renewal down 20%, and how to get a sales team
+to actually adopt a new tool instead of working around it. That judgment
+comes from doing the work across a dozen B2B SaaS companies, not from
+reading about it.
 
 ---
 
@@ -138,6 +139,39 @@ is broken.
 
 Trigger: any request to build, fix, or evaluate a free trial program
 or trial-to-paid conversion.
+
+**gtm-ai-adoption-rollout**
+Builds a 90-day adoption plan for rolling out AI tools and new
+workflows to a sales or marketing team. Diagnoses which of five
+common failure modes applies (wrong incentive structure, one-time
+training event, too much change at once, unidentified resisters, or
+no adoption owner), then delivers a phased rollout plan with
+manager coaching guidance and behavioral success metrics.
+
+Distinguishing feature: every GTM skill on GitHub teaches Claude how
+to do marketing tasks. This one addresses the organizational problem
+of getting a sales and marketing team to actually use new tools.
+Built from the experience of achieving 100% GTM team adoption across
+HubSpot, Salesloft, and ZoomInfo at a B2B SaaS company.
+
+Trigger: any mention of rolling out AI tools, low tool adoption,
+getting rep buy-in, or change management for a GTM team.
+
+**partner-marketing-infrastructure**
+Builds the operational infrastructure of a B2B partner program: tier
+structure with movement criteria, CRM attribution configuration for
+partner-sourced vs. partner-influenced deals, deal registration
+workflow and conflict resolution rules, joint go-to-market playbook,
+and a measurement framework that isolates partner-sourced revenue
+from direct revenue.
+
+Distinguishing feature: every other partner skill mentions co-marketing
+in a single line. This one goes four levels deeper on the operational
+and attribution infrastructure that determines whether a partner
+program produces measurable pipeline or just activity.
+
+Trigger: any mention of building a partner program, partner pipeline
+attribution, reseller programs, or co-sell infrastructure.
 
 ---
 
