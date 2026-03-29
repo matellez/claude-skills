@@ -65,6 +65,24 @@ in knowing the company cold.
 Trigger: mention a company name alongside an interview or job
 application.
 
+**recruiter-outreach**
+Writes short-form outreach messages for a senior B2B practitioner
+targeting Director-level roles: cold LinkedIn messages to recruiters
+who posted a role, warm follow-up to recruiters you have spoken with
+before, direct outreach to hiring managers, dormant contact
+reactivation, and follow-up after no response. Encodes the strategic
+decisions behind each message type: leading with the reader's problem,
+using one specific proof point, making one ask, and staying within
+tight word count limits.
+
+Distinguishing feature: not a cover letter generator or cold email
+template. This encodes the judgment calls that determine whether a
+senior practitioner's outreach gets a response or gets ignored.
+Includes a common failures audit run on every draft before delivery.
+
+Trigger: any request to write a message to a recruiter, hiring manager,
+or contact in a job search context.
+
 ---
 
 ### RevOps and demand gen
@@ -227,6 +245,26 @@ Trigger: any conversation about MQL definition, lead handoff, sales
 not following up on marketing leads, or building a sales-marketing
 agreement.
 
+**sales-leader-alignment**
+Diagnoses the type of misalignment between a demand gen or RevOps
+leader and a skeptical or adversarial sales leader, then prescribes
+the right approach for each type. Covers four distinct misalignment
+patterns: earned skepticism from prior marketing performance,
+structural misalignment from separate targets, political competition
+for pipeline credit, and philosophical opposition to the marketing
+function. Includes the specific conversations that shift the dynamic
+and the common mistakes that make it worse.
+
+Distinguishing feature: no skill on GitHub addresses the ongoing
+peer relationship between a marketing leader and a sales leader who
+does not trust marketing. This encodes the practitioner judgment
+behind when to use data, when to make attribution generous to sales,
+when to escalate, and when escalation will backfire.
+
+Trigger: any situation where sales does not trust marketing, the VP
+of Sales is skeptical, or the marketing leader needs to shift the
+dynamic with a resistant sales peer.
+
 ---
 
 ### Writing
@@ -247,6 +285,31 @@ word count, and ending strategy. No "agree or disagree" endings.
 Opinions required.
 
 Trigger: any request for a LinkedIn post or update.
+
+---
+
+### Consulting
+
+**consulting-engagement-setup**
+Sets up an independent consulting engagement correctly from the start.
+Covers the pre-proposal conversation questions that reveal the real
+problem before any scope is written, deliverable definition versus
+activity definition, explicit exclusions that prevent scope creep,
+success criteria in measurable terms, hourly versus project versus
+retainer pricing structures, how to anchor the rate conversation,
+what to put in writing before starting work, and how to handle scope
+expansion without absorbing it silently.
+
+Distinguishing feature: built for an independent practitioner stepping
+into a first or early consulting engagement, not an agency or large
+firm. Addresses the specific failure modes of senior practitioners
+who underscope and underprice because they are eager to win the work.
+Includes a red flags section that names the client signals most
+consultants ignore until the engagement is already in trouble.
+
+Trigger: setting up a consulting engagement, scoping work for a new
+client, pricing a project, or handling scope creep in a current
+engagement.
 
 ---
 
@@ -272,9 +335,9 @@ role targets. To use them for your own job search, replace those
 sections with your own background. The trigger logic, scoring
 frameworks, and output structure transfer directly.
 
-The RevOps, leadership, and writing skills work out of the box with
-no personalization required. Just add them to a Project and describe
-your situation.
+The RevOps, leadership, writing, and consulting skills work out of
+the box with no personalization required. Just add them to a Project
+and describe your situation.
 
 ---
 
